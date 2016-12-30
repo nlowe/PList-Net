@@ -9,9 +9,14 @@ namespace PListNet.Tests
 	{
 		public static Stream GetTestFileStream(string relativeFilePath)
 		{
-			const char namespaceSeparator = '.';
 
 			// get calling assembly
+#if NETCORE1_0
+			var baseDir = Path.Combine(AppContext.BaseDirectory, "..", "..", "..");
+			
+			return File.OpenRead(Path.Combine(baseDir, relativeFilePath));
+#else
+			const char namespaceSeparator = '.';
 			var assembly = Assembly.GetCallingAssembly();
 
 			// compute resource name suffix (replace Windows/Unix directory separators with namespace separator)
@@ -23,7 +28,7 @@ namespace PListNet.Tests
 			// get resource stream
 			var fullName = assembly
 				.GetManifestResourceNames()
-				.FirstOrDefault(name => name.EndsWith(relativeName, StringComparison.InvariantCulture));
+				.FirstOrDefault(name => name.EndsWith(relativeName, StringComparison.OrdinalIgnoreCase));
 			if (fullName == null)
 			{
 				throw new Exception(string.Format("Unable to find resource for path \"{0}\". Resource with name ending on \"{1}\" was not found in assembly.", relativeFilePath, relativeName));
@@ -36,6 +41,7 @@ namespace PListNet.Tests
 			}
 
 			return stream;
+#endif
 		}
 
 

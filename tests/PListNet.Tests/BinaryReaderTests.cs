@@ -3,7 +3,6 @@ using PListNet.Nodes;
 
 namespace PListNet.Tests
 {
-	[TestFixture]
 	public class BinaryReaderTests
 	{
 		[Test]
