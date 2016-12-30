@@ -54,7 +54,7 @@
     <EmbeddedResource Include="TestFiles\utf8-Info.plist" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PListNet.csproj">
+    <ProjectReference Include="..\..\src\PListNet\PListNet.csproj">
       <Project>{C1154025-FCAB-40AF-A715-91D10420C321}</Project>
       <Name>PListNet</Name>
     </ProjectReference>
