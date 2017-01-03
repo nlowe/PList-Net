@@ -12,16 +12,23 @@
   },
   "testRunner": "nunit",
   "frameworks": {
-    "netcoreapp1.0": {
+    "net451": {
+      "dependencies": {},
+      "frameworkAssemblies": {
+        "System.Runtime.Serialization": "4.0.0.0",
+        "System.Xml": "4.0.0.0"
+      }
+    },
+    "netcoreapp1.1": {
       "dependencies": {
         "Microsoft.NETCore.App": {
           "type": "platform",
-          "version": "1.0.0-*"
+          "version": "1.1.0-*"
         }
       },
       "buildOptions": {
         "define":[
-          "NETCORE1_0"
+          "NETCORE1_1"
         ]
       },
       "imports": [

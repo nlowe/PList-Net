@@ -11,7 +11,7 @@ namespace PListNet.Tests
 		{
 
 			// get calling assembly
-#if NETCORE1_0
+#if NETCORE1_1
 			var baseDir = Path.Combine(AppContext.BaseDirectory, "..", "..", "..");
 			
 			return File.OpenRead(Path.Combine(baseDir, relativeFilePath));
